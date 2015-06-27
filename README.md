@@ -11,6 +11,7 @@ Tweetnotes is a web application for analysing tweets manually. It fetches tweets
 Copy the environment variable file and fill in the credentials:
 
     cp .env.web.sample .env.web
+    
     vim .env.web
 
 Then run:
@@ -26,8 +27,11 @@ Then see http://192.168.59.103:9000/
 
 
     go get github.com/revel/revel
+    
     go get gopkg.in/mgo.v2
+    
     go get github.com/ChimeraCoder/anaconda
+    
     go get github.com/revel/cmd/revel
     
     
@@ -37,9 +41,13 @@ Then see http://192.168.59.103:9000/
 
 
     export CONSUMER_KEY=abcd...
+    
     export CONSUMER_SECRET=efgh...
+    
     export ACCESS_TOKEN=1234...
+    
     export ACCESS_TOKEN_SECRET=6789....
+    
     export MONGODB_DBNAME=tweetnotes
 
 
@@ -56,10 +64,10 @@ Then see http://localhost:9000/
 
 Homepage:
 
-+![Screenshot](https://github.com/aladagemre/tweetnotes/blob/master/screenshot0.png)
+![Screenshot](https://github.com/aladagemre/tweetnotes/blob/master/screenshot0.png)
 
 Fill in the username and press the button and you will see:
 
-+![Screenshot](https://github.com/aladagemre/tweetnotes/blob/master/screenshot1.png)
+![Screenshot](https://github.com/aladagemre/tweetnotes/blob/master/screenshot1.png)
 
 
