@@ -10,13 +10,13 @@ Tweetnotes is a web application for analysing tweets manually. It fetches tweets
 
 Copy the environment variable file and fill in the credentials:
 
-    cp .env.web.sample .env.web
-    
-    vim .env.web
+        cp .env.web.sample .env.web
+        
+        vim .env.web
 
 Then run:
 
-    docker-compose up
+        docker-compose up
     
 
 Then see http://192.168.59.103:9000/
@@ -26,35 +26,35 @@ Then see http://192.168.59.103:9000/
 * Make sure you have golang 1.4.2+ installed. Then install dependencies. 
 
 
-    go get github.com/revel/revel
-    
-    go get gopkg.in/mgo.v2
-    
-    go get github.com/ChimeraCoder/anaconda
-    
-    go get github.com/revel/cmd/revel
+        go get github.com/revel/revel
+        
+        go get gopkg.in/mgo.v2
+        
+        go get github.com/ChimeraCoder/anaconda
+        
+        go get github.com/revel/cmd/revel
     
     
 * Make sure MongoDB instance is running on localhost:27071. 
 
- * Then set the environment variables:
+* Then set the environment variables:
 
 
-    export CONSUMER_KEY=abcd...
-    
-    export CONSUMER_SECRET=efgh...
-    
-    export ACCESS_TOKEN=1234...
-    
-    export ACCESS_TOKEN_SECRET=6789....
-    
-    export MONGODB_DBNAME=tweetnotes
+        export CONSUMER_KEY=abcd...
+        
+        export CONSUMER_SECRET=efgh...
+        
+        export ACCESS_TOKEN=1234...
+        
+        export ACCESS_TOKEN_SECRET=6789....
+        
+        export MONGODB_DBNAME=tweetnotes
 
 
 * Then start the server:
 
 
-    revel run github.com/aladagemre/tweetnotes
+        revel run github.com/aladagemre/tweetnotes
  
 
  
