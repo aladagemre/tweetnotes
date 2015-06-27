@@ -1,0 +1,62 @@
+{{set . "title" "Home"}}
+{{template "header.html" .}}
+<style type="text/css">
+  .error-border{
+  border-color: red;
+  }
+  .success-border {
+  border-color : green;
+  }
+</style>
+
+<div class="container">
+  <div class="row">
+    <div class="md-12">
+      <h1>Tweets for {{ .screen_name }}</h1>
+        <div class="jumbotron">
+          <p>Please type your note into a text edit and press enter to save it.</p>
+            <form action="/tweets/{{.screen_name}}/update" method="get">
+                <input type="hidden" name=".screen_name" value="{{ .Screen_name }}"/>
+                <input type="submit" class="btn btn-success" value="Update Tweets"/>
+                <a class="btn btn-primary" href="/tweets/{{.screen_name}}/json">Export as JSON</a>
+            </form>
+            <br/>
+            <p>« <a href="/">Homepage</a></p>
+        </div>
+
+      <hr/>
+      {{ if .tweets }}
+        {{ range .tweets }}
+
+        <div>
+          {{ .Text }} <a href="https://twitter.com/{{ .Screen_name }}/status/{{ .Id_str }}">Link</a><br/>
+          <small>{{ .Created_at }}</small> <span id="span-{{.Id_str}}" style="display:none"> - Updated</span><br/>
+          <input type="text" name="{{ .Id_str}}" value="{{ .Note }}" style="width:500px"/><br/><br/>
+        </div>
+        {{ end }}
+      {{ else }}
+      No tweets
+      {{ end }}
+    </div>
+
+  </div>
+</div>
+
+
+<script type="text/javascript">
+           $('input:text').keypress(function(e) {
+                if(e.which == 13) {
+                    e.preventDefault();
+
+                     $.post("/tweets/" + {{.screen_name }} + "/" + this.name, {"note.Text": this.value})
+                      .done(function(data){
+                        $.notify("Updated!", "success");
+                      })
+                      .error(function(err){
+                        $.notify("Error in updating!", "error");
+                      });
+                }
+           });
+</script>
+
+{{template "footer.html" .}}

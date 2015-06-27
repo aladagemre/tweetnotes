@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <title>{{.title}}</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+    <link rel="stylesheet" href="/public/css/bootstrap.min.css"></link>
+    <script src="//code.jquery.com/jquery-2.1.1.min.js"></script>
+
+    <script type="text/javascript" src="/public/js/jquery.tablesorter.min.js"></script>
+    <script type="text/javascript" src="/public/js/jquery.tshift.min.js"></script>
+    <script type="text/javascript" src="/public/js/notify.min.js"></script>
+
+    <link rel="shortcut icon" type="image/png" href="/public/img/favicon.png">
+    {{range .moreStyles}}
+      <link rel="stylesheet" type="text/css" href="/public/{{.}}">
+    {{end}}
+    {{range .moreScripts}}
+      <script src="/public./{{.}}" type="text/javascript" charset="utf-8"></script>
+
+    {{end}}
+  </head>
+  <body>

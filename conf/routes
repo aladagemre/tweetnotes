@@ -1,0 +1,22 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+module:testrunner
+
+GET     /                                       App.Index
+GET     /tweets/:screen_name                    App.Tweets
+GET     /tweets/:screen_name/json               App.TweetsJson
+GET     /tweets/:screen_name/update             App.Update
+
+POST    /tweets/import                          App.Import
+POST    /tweets/:screen_name/:id_str            App.PostNote
+
+# Ignore favicon requests
+GET     /favicon.ico                            404
+
+# Map static resources from the /app/public folder to the /public path
+GET     /public/*filepath                       Static.Serve("public")
+
+# Catch all
+*       /:controller/:action                    :controller.:action

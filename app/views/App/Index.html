@@ -1,0 +1,34 @@
+{{set . "title" "Home"}}
+{{template "header.html" .}}
+
+<div class="container">
+  <div class="row">
+    <div class="md-12">
+      <h1>Welcome to Tweetnotes</h1>
+      <div class="jumbotron">
+        <h2>Display Profile</h2>
+
+        <p>Twitter Screen name:
+          <input type="text" id="screen_name"/>
+          <button onclick="navigate()" class="btn btn-success">Display Profile</button></p>
+      </div>
+      <div class="jumbotron">
+        <h2>Import tweets</h2>
+        <form action="/tweets/import" method="post" enctype="multipart/form-data">
+          <input type="file" name="file"/>
+          <input class="btn btn-success" type="submit" value="Import">
+        </form>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<script type="text/javascript">
+  function navigate(){
+    var screen_name = document.getElementById("screen_name");
+    window.location.href = '/tweets/' + screen_name.value;
+  }
+</script>
+
+{{template "footer.html" .}}

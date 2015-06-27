@@ -1,0 +1,18 @@
+web:
+  build: .
+  ports:
+    - "9000:9000"
+  links:
+    - mongodb
+  env_file:
+    - '.env.web'
+
+mongodb:
+  image: mongo:2.6.10
+  expose:
+     - "27017"
+     - "28017"
+  #volumes:
+  #  - ./volumes/mongodb-data:/data/db
+  environment:
+    - MONGODB_DBNAME=tweetnotes

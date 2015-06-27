@@ -1,0 +1,24 @@
+{{set . "title" "Home"}}
+{{template "header.html" .}}
+
+<div class="container">
+  <div class="row">
+    <div class="md-12">
+      <div class="hero-unit" style="margin:5em">
+      {{ if .successful }}
+        <div class="alert alert-success">Number of successfully imported tweets: {{ .successful }}</div>
+        {{ if .failed }}
+        <div class="alert alert-danger">Number of failed tweets: {{ .failed }}</div>
+        {{ end }}
+      {{ else }}
+        <p>Tweets could not be imported.</p>
+      {{ end }}
+
+        <div>See profile page for <a href="/tweets/{{ .screen_name }}">{{ .screen_name }}</a></div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+{{template "footer.html" .}}
